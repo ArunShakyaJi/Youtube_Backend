@@ -340,9 +340,9 @@ const deletePlaylist = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Playlist not found");
     }
 
-    // if (playlist.owner.toString() !== req.user?._id.toString()) {
-    //     throw new ApiError(400, "only owner can delete the playlist");
-    // }
+    if (playlist.owner.toString() !== req.user?._id.toString()) {
+        throw new ApiError(400, "only owner can delete the playlist");
+    }
 
     await Playlist.findByIdAndDelete(playlist?._id);
 

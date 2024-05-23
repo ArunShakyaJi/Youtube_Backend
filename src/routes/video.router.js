@@ -27,7 +27,7 @@ const router = Router()
 //     publishAVideo
 // )
 
-// router.route("/").get(getAllVideos)
+router.route("/").get(getAllVideos)
 // router.route("/v/:videoId").get(verifyJWT , getVideoById)
 
 router.route("/publish").get(getAllVideos).post(verifyJWT, upload.fields([
